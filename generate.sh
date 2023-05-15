@@ -64,7 +64,7 @@ for part in a ab;do
 					optional_base='$(call inherit-product, device/phh/treble/base-sas.mk)'
 				fi
 
-				target="treble_${arch}_${part_suffix}${apps_suffix}${su_suffix}"
+				target="master_${arch}_${part_suffix}${apps_suffix}${su_suffix}"
 
 				baseArch="$arch"
 				if [ "$arch" = "a64" ];then
@@ -86,10 +86,10 @@ $apps_script
 $rom_script
 
 PRODUCT_NAME := $target
-PRODUCT_DEVICE := tdgsi_${arch}_$part
+PRODUCT_DEVICE := master_${arch}_$part
 PRODUCT_BRAND := google
 PRODUCT_SYSTEM_BRAND := google
-PRODUCT_MODEL := TrebleDroid $apps_name
+PRODUCT_MODEL := AOSP-Master (TD) $apps_name 
 
 # Overwrite the inherited "emulator" characteristics
 PRODUCT_CHARACTERISTICS := device
@@ -103,3 +103,4 @@ echo -e '\t$(LOCAL_DIR)/'$target.mk '\' >> AndroidProducts.mk
 	done
 done
 echo >> AndroidProducts.mk
+
